@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>And I Code</title>
+        <meta charset="utf-8">
+        <link href="/css/pico.classless.min.css" rel="stylesheet">
+        <link href="/css/atom-one-dark.min.css" rel="stylesheet">
+        <script src="/js/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+    </head>
+
+    <body>
+        <header>
+            <nav
+                aria-label="breadcrumb"
+                style="--pico-nav-breadcrumb-divider: '&gt;';"
+                >
+
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li>Custom Keyboard Layout</li>
+                </ul>
+            </nav>
+
+            <h1>Custom Keyboard Layout</h1>
+            <p><time datetime="2024-10-24">October 24, 2024</time></p>
+        </header>
+
+        <main>
+            <h2>Why would you create a custom keyboard layout?</h2>
+
+            <h3>Step 1: Learn Touch Typing on QWERTY</h3>
+            <p>Ever since I discovered <a href="https://www.youtube.com/c/ThePrimeagen">The Primeagean</a> on Youtube, I started thinking a lot more on developer productivity. In particular, about the efficient usage and selection of fundamental tools to increase developer productivity. If you have a modern computer at your disposal, with these fundamental tools I mean:</p>
+            <ul>
+                <li><strong>Input Devices</strong> like Keyboard, Mouse.</li>
+                <li><strong>An Operating System</strong> and how to make good use of it and its basic tools.</li>
+                <li><strong>A Code Editor</strong> and its Shortcuts.</li>
+                <li><strong>A Source Control Management</strong> like git and a solid knowledge around it.</li>
+            </ul>
+            <p> One could probably add way more points to this list, but I'll leave it at that.</p>
+            <p> Now, if you watch a couple of Primagean-Videos you will find out he mentions a couple of things that are relevant to this article: Touch-Typing is literally mandatory to be a dev; he uses a custom, dvorak based keyboard layout; NeoVim is God.</p>
+            <p> At the time I watched these videos, I used my own typing system based on QWERTZ-layout, which definitely involved more than two fingers but also less than 10 and I didn't know how to properly exit vim (just reboot the device). Now as I estimate the time I spend typing each week to be roughly 10~20 hours, even a 10% increase in typing speed would lead to 1-2 hours each week which I could use for something else (more coding obvsly). </p>
+            <p> Thus I started the quest to learn touch typing. And as I also heard it often enough that the QWERTY layout is better for coding (actually fuck you too to whoever said that - see below for reasons) and Unix Shell than QWERTZ, I decided to also switch from my known layout to the QWERTY internaional one. Now since my wife is also using the same keyboards, which are QWERTZ keyboards, I decided to learn QWERTY on a physical QWERTZ keyboard, so I didn't have to buy new keyboards (and a new laptop).</p>
+            <p>To learn touch typing I used <a href="https://www.typingclub.com">Typing Club</a> and I can absolutely recommend this. And it was way easier than I thought, after roughly two weeks of training I went full QWERTY. Of course I was slower in the beginning but not by so much that it would have mattered.</p>
+
+            <h3>Step 2: Find out that touch typing code with QWERTY is shit</h3>
+            <p> Now your mileage may vary and if you grew up with QWERTY you may be absolutely fine with it. In that case, great. However, bear with me for a second. After I switched to QWERTY, after about a week I noticed that my right little finger and hand starts hurting. This is after I have used keyboards since I was a kid and now suddenly stuff starts hurting. Why? </p>
+            <p> Well it turns out that if you stick to touch typing, your right little finger is suddenly responsible to enter A SHITLOAD OF CHARACTERS. Think: </p>
+            <ul>
+                <li>;</li>
+                <li>:</li>
+                <li>"</li>
+                <li>'</li>
+                <li>/</li>
+                <li>?</li>
+                <li>p</li>
+                <li>P</li>
+                <li>[</li>
+                <li>]</li>
+                <li>}</li>
+                <li>{</li>
+                <li>0</li>
+                <li>+</li>
+                <li>_</li>
+                <li>-</li>
+                <li>=</li>
+            </ul>
+            <p> Knowing this, now please calculate how many characters of the following line the right little finger needs to type: </p>
+            <pre><code class="language-cpp">
+auto inc_p=[&amp;p]{++p;};
+            </code></pre>
+
+            That's 22 characters, 13 of which need to be typed with the right little finger, if one sticks to touch typing. While it's valid c++ code, the example is a bit exaggerated - the ratio will not be that bad in a typical codebase. Nevertheless, it's bad enough that my hand started hurting.
+
+            <h3>Step 3: Find out you can't go back</h3>
+            <p> So if I did not like the QWERTY layout for programming, why not simply switch back? When I came to the point that I found out it won't be sustainable to use this layout anymore for my daily work, I also noticed that I can't quite go back to the way I typed before. The typing system I used before was entirely self-taught and subconscious. Now that I used a structured approach to learn a different system, I found that I could not really remember how I typed before. </p>
+            <p> Where to go from here? In retrospective, I had multiple options:
+            <ul>
+                <li> Continue touch typing with QWERTY </li>
+                <li> Relearn touch typing for QWERTZ (mainly relearn symbol handling) </li>
+                <li> Relearn touch typing with a QWERTY based, adapted keyboard layout </li>
+                <li> Create my own keyboard layout </li>
+            </ul>
+
+            <p>
+            Continuing with QWERTY was probably not a real option due to the developing wrist and finger pain. </p>
+            <p>Switching back to QWERTZ and learning touch typing for it would have been viable, it would have mainly meant relearning the symbol placements. The drawbacks I saw here are that symbol placements are still somewhat awkward on QWERTZ and that the keyboard layout is suboptimal with respect to vim usage.</p>
+            <p> I checked a couple of different QWERTY based layouts, but I was in a little bit of an awkward spot: I still wanted to easily type german Umlauts (Ö, Ü, Ä) and use a QWERTZ-keyed keyboard. </p>
+            <p> And maybe I was a bit nerd-motivated to take the all-in approach: also design my own keyboard-layout, as I want it to be. So that's what I did. <p>
+            
+
+            <h2>Thoughts that went into my layout</h2>
+            <p> As mentioned, I wanted to be able to easily type german Umlauts but mitigate the amount of characters that the right little finger needs to type. In particular I struggled with the characters <code>{[]}=+</code> as you really need to reach far to get to those keys and they are somewhat hard to differentiate from their neighbours.
+            But when you start rearranging symbols, why not think a little further? One thing I appreciate about the QWERTZ keyboard is the <code>alt-gr</code> key on the right side of the space bar. It's essentially a toggle to a different keyboard overlay that's used to type e.g. <code>@{[</code> and some other symbols.</p>
+            <p>What seems really useful to me with respect to programming is to use the <code>alt gr</code> key to offload some of the symbols from other keys onto keys closer to the homerow, so that's what I did. Another thing with a custom keyboard is that you need to remember somewhat easily where the keys are for your symbols, as you will never see them printed on the actual keyboard. So I arranged the braces <code>{[()}]</code> in that order on the number block, left a lot of the comfortably reachable symbols where they are in QWERTY, and sprinkled the rest with a <code>alt gr</code> modifier onto keys close to the homerow that I could somewhat easily associate with them  (think d -> $, x-> *, p->% ). The full layout can be found here:  </p>
+
+            <h2>Would I do it again?</h2>
+            <p> If I could start all over again, I would probably take a different approach and never learn touch typing with QWERTY in the first place, but learn it for QWERTZ. Maybe it would have worked out all right. And I think I put too much weight onto possible difficulties with vim - having the <code>/?"'</code> characters where they are on QWERTY is nice, but many helpful motions are possible without them. </p> 
+            <p> Even if I would not have come to terms with touch typing with QWERTZ I could still have gone the path of creating a custom layout based on QWERTZ and placing some symbols in the <code>alt gr</code> layer close to the home row. Nevertheless, I would not take it so lightly again to create a custom layout, as it is a lot of work to get it working correctly (for windows and linux), as well as install and maintain it for all your devices. Moreover, you are completely lost when you are working on a different device where your layout is not installed. While the latter does not occur as often as one might think, it's still painful every time.</p>
+            <p>To the biggest question of all: <strong>Did I get more efficient with typing doing all of this?</strong> Sadly, I can't definitely answer this, as I did not benchmark my typing speed, in particular when coding, before I learned touch typing. What is definitely a benefit is that I can type while not looking at the keyboard anymore, not even for short glimpses. And this extends also to numbers and symbols. Moreover, at roughly the same time I switched layouts I also started learning vim and vim motions. While that is a different tale in and of itself, it also greatly impacted my code editing efficiency.</p>
+            <p> In conclusion: Learn touch typing for the layout that most of the keyboards around you have, don't let anyone tell you that QWERTY is the greatest layout and think very hard before you create a custom layout, as it comes with many tradeoffs.</p>
+
+
+            <a href="/index.html" class="button">&larr; Back to the blog</a>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Andreas Marquardt</p>
+
+        </footer>
+    </body>
+
+</html>
